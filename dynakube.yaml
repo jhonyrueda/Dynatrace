@@ -22,8 +22,6 @@ spec:
 
   skipCertCheck: true
 
-
-
   oneAgent:
     # Optional: enable classic fullstack monitoring and change its settings
     # Cannot be used in conjunction with cloud-native fullstack monitoring, application-only monitoring or host monitoring
@@ -82,9 +80,9 @@ spec:
       # Optional: additional environment variables to add to the OneAgent Pods.
       #
       # env: []
-      env:
-        - name: ONEAGENT_ENABLE_VOLUME_STORAGE
-          value: "true"
+      # env:
+      #   - name: ONEAGENT_ENABLE_VOLUME_STORAGE
+      #     value: "true"
 
       # Optional: arguments to add to the OneAgent installer.
       # Available options: https://www.dynatrace.com/support/help/shortlink/linux-custom-installation
