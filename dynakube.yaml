@@ -1,17 +1,17 @@
 apiVersion: v1
 data:
-  apiToken: T3BlcmF0b3Jfa3ViZXJuZXRlc18yMDIyMDMxNV8xMTUx
-  dataIngestToken: RGF0YUluZ2VzdF9rdWJlcm5ldGVzXzIwMjIwMzE1XzExNTE=
+  apiToken: ZHQwYzAxLklVUzJOTUhMM1RaUDNPUTRGMkJVTElQQi5LRFBYT0dFRU5DNlZLV0FTNzdGQlBLTTVOUTVEVlVWVjdUVEJYM0FIRlNPRFE1UE1LTjRaUFpVR1UzQlYzTFlT
+  dataIngestToken: ZHQwYzAxLjRDVlpCRUVHQkc2UUVIWE1KQ0Q0QlcyUC5NWENEQjM0SFBUUk1WQlNGUDNaRUZNSklTQ0VNMkJYN1ZUVVVJWUJFTzVEU0lWQVZCNU00SkVEMzNDSDQ3SVFN
 kind: Secret
 metadata:
-  name: digital-eks-uat
+  name: eks-uat-digital
   namespace: dynatrace
 type: Opaque
 ---
 apiVersion: dynatrace.com/v1beta1
 kind: DynaKube
 metadata:
-  name: digital-eks-uat
+  name: eks-uat-digital
   namespace: dynatrace
   annotations:
     alpha.operator.dynatrace.com/feature-automatic-kubernetes-api-monitoring: "true"
@@ -46,7 +46,7 @@ spec:
   # Make sure networkZones are enabled on your cluster before (see https://www.dynatrace.com/support/help/setup-and-configuration/network-zones/network-zones-basic-info/)
   #
   # networkZone: name-of-my-network-zone
-  
+  networkZone: eks-uat-digital
 
   # Optional: Defines a custom pull secret in case you use a private registry when pulling images from the dynatrace environment
   # The secret has to be of type 'kubernetes.io/dockerconfigjson' (see https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/)
@@ -127,6 +127,9 @@ spec:
       #
       # args: []
       
+      args:
+        - --set-host-group="eks-uat-digital"
+      
 
   # Configuration for ActiveGate instances.
   activeGate:
@@ -179,7 +182,7 @@ spec:
     # Optional: Set activation group for ActiveGate
     #
     # group: ""
-    
+    group: eks-uat-digital
 
     # Optional: Add a custom properties file by providing it as a value or reference it from a secret
     # If referenced from a secret, make sure the key is called 'customProperties'
