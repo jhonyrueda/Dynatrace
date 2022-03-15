@@ -1,17 +1,17 @@
 apiVersion: v1
 data:
-  apiToken: ZHQwYzAxLlZKWFdUNFJSWFdBWEFDSkozRENUUklVWS5CRFJKSFdHNEpYWlNJWlBYQUxWRUM3NkNRVDVHSDZLQlpLTzVVVDcySlJSVVg1SkJMN0ZJVkNXSURHQ1BTNkg2
-  dataIngestToken: ZHQwYzAxLlhFT0FDUFFJQUtLQ0c3SE80TllOUzNUQS5QS1dBM1NHN05OM0tBNTVaR0tUTFBVTVVWQU9LT1RQQlpYWVpIQ0w0R1JCVDNHTElRN05aS1RYMzREVE5CVDVN
+  apiToken: T3BlcmF0b3Jfa3ViZXJuZXRlc18yMDIyMDMxNV8xMTUx
+  dataIngestToken: RGF0YUluZ2VzdF9rdWJlcm5ldGVzXzIwMjIwMzE1XzExNTE=
 kind: Secret
 metadata:
-  name: ekstestinfra
+  name: digital-eks-uat
   namespace: dynatrace
 type: Opaque
 ---
 apiVersion: dynatrace.com/v1beta1
 kind: DynaKube
 metadata:
-  name: ekstestinfra
+  name: digital-eks-uat
   namespace: dynatrace
   annotations:
     alpha.operator.dynatrace.com/feature-automatic-kubernetes-api-monitoring: "true"
