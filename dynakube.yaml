@@ -4,14 +4,14 @@ data:
   
 kind: Secret
 metadata:
-  name: mon
+  name: ekstestinfra
   namespace: dynatrace
 type: Opaque
 ---
 apiVersion: dynatrace.com/v1beta1
 kind: DynaKube
 metadata:
-  name: mon
+  name: ekstestinfra
   namespace: dynatrace
   annotations:
     alpha.operator.dynatrace.com/feature-automatic-kubernetes-api-monitoring: "true"
@@ -30,7 +30,7 @@ spec:
 
   # Optional: Disable certificate validation checks for installer download and API communication
   #
-  skipCertCheck: true
+  skipCertCheck: false
 
   # Optional: Set custom proxy settings either directly or from a secret with the field 'proxy'
   #
@@ -119,7 +119,7 @@ spec:
       # env: []
       env:
         - name: ONEAGENT_ENABLE_VOLUME_STORAGE
-          value: "true"
+          value: "false"
 
       # Optional: arguments to add to the OneAgent installer.
       # Available options: https://www.dynatrace.com/support/help/shortlink/linux-custom-installation
